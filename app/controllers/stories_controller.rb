@@ -15,8 +15,7 @@ class StoriesController < ApplicationController
   end
 
   def show
-    find_vote(@story)
-    Sanitize.fragment(@story, Sanitize::Config::RESTRICTED)
+    find_vote(@story.remove_dangerous_html_tags!)
     @tags = Tag.tags_for_select
     # show particular story
   end
@@ -42,7 +41,8 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find(params["id"])
-    if @story.update(content: params["story"]["content"], title: params["story"]["title"], published: params["story"]["published"])
+    
+    if @story.update_materials(params)
       User.find(session[:user_id]).stories << @story
       if request.xhr?
         render plain: "Autosaved on " + @story.updated_at.strftime("%m/%d/%Y at %I:%M:%S %p")
@@ -63,11 +63,6 @@ class StoriesController < ApplicationController
     story.destroy
     redirect_to root_path
   end
-
-  # def show_tags
-  #   @story = Story.find(params[:id])
-  #   @stories_with_tags = Tag.where(story_id: @story.id)
-  # end
 
   def flag
     @story = Story.find(params[:id])
@@ -91,6 +86,5 @@ class StoriesController < ApplicationController
   def story_params
     params.require(:story).permit(:title, :content, :snippet_id, :author_id, :published)
   end
-
 
 end

@@ -5,6 +5,7 @@ feature 'Sign a user up' do
 
   scenario "User can sign up" do
     visit '/signup'
+
     expect {
     fill_in 'user_username', with: user.username
     fill_in 'user_password', with: 'password'

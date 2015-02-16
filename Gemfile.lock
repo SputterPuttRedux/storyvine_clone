@@ -239,6 +239,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  byebug
   capybara
   carrierwave
   coffee-rails (~> 4.1.0)

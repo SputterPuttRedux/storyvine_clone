@@ -13,12 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require redactor-rails
-//= require redactor-rails/config.js
-//= require livevalidation_standalone.js
-//= require livevalidationready.js
 //= require_tree .
-//= require jquery.scrollmagic.js
-//= require jquery.scrollmagic.min.js
 
 $(function(){ $(document).foundation(); });

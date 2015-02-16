@@ -53,6 +53,12 @@ class Story < ActiveRecord::Base
     end
   end
 
+  def update_materials(params)
+    update(content: params["story"]["content"],
+           title: params["story"]["title"],
+           published: params["story"]["published"])
+  end
+
   def most_voted
     current_stories = Story.all.sort_by {|story| story.votes.count }
     if self.votes.count > current_stories.last.votes.count
@@ -61,6 +67,10 @@ class Story < ActiveRecord::Base
     end
   end
 
+  def remove_dangerous_html_tags
+    Sanitize.fragment(self, Sanitize::Config::RESTRICTED)
+    self
+  end
 end
 
 

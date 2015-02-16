@@ -4,8 +4,8 @@ class CreateStories < ActiveRecord::Migration
       t.references :snippet
       t.references :parent, index: true
       t.integer :author_id
-      t.string :title
-      t.text :content
+      t.string :title # null:false, default: ""
+      t.text :content # null:false, default: ""
       t.boolean :published, default: false
 
       t.timestamps
