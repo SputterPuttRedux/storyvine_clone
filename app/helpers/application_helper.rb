@@ -18,10 +18,4 @@ module ApplicationHelper
        item.author.id == session[:user_id] || current_user.admin
      end
    end
-
-  def random_story
-    @story = Story.all.sample
-  end
-
-
 end
