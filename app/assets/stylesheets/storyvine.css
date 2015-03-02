@@ -454,6 +454,7 @@ font-size: 1rem;
 .tabs .tab-title.active a {
 background-color: #FFFFFF;
 color: #008CBA;
+
 }
 
 
@@ -501,7 +502,7 @@ color: #008CBA;
   font-family: 'Bitter', serif;
   padding: 20px 0px 20px 0px;
   margin: 20px;
-  background-color: #A9C0B9;
+  background-color: #C9C9C9;
   text-align: center;
 }
 
