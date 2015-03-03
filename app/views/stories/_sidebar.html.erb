@@ -1,42 +1,69 @@
 <nav class="tab-bar">
       <section class="left-small">
-        <a class="menu-icon" id="menu-toggle"><span></span></a>
+        <a class="menu-icon" id="menu-toggle"><span> Menu</span></a>
       </section>
 
-      <section class="middle tab-bar-section">
-        <h1 class="title">ALXS Foundation Sidebar</h1>
-      </section>
 
-    </nav>
+</nav>
+
     <div id="wrapper">
             <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        ALXS Sidebar
-                    </a>
-                </li>
                 <li>
-                    <a href="#" alt="Dashboard">Dashboard<span class="fi-wrench" alt="Dashboard"></span></a>
+                    <% if @story.published && session[:user_id] %>
+                    <%= link_to "Write Off Of This Story", new_nested_story_path %><span class="fi-wrench" alt="Dashboard"></span></a>
+                    <% end %>
                 </li>
+
                 <li>
-                    <a href="#" alt="Shortcuts">Shortcuts<span class="fi-link" alt="Shortcuts"></a>
+                    <a href="#">Trace The History<span class="fi-clipboard-notes" alt="Overview"></a>
+
+
+
+                      <div class="vine-icon">
+                        Trace The History
+                    </div>
+
+
                 </li>
+
+
+
+
                 <li>
-                    <a href="#">Overview<span class="fi-clipboard-notes" alt="Overview"></a>
+                      <div class="row">
+                        <div class="small-11 small-centered columns">
+                      <div class="vote-count">
+                        Votes: <%= @story.vote_count %>
+                      </div>
+                      </div>
+                    </div>
+
+
+
+                            <div class="row">
+                      <div class="small-11 small-centered columns">
+                        <div class="vote-button" id="vote-center-button">
+                          <% if current_user %>
+                            <div id="upvote">
+                            <% if @vote != nil && @vote.user_id == current_user.id %>
+                              <%= button_to "Downvote",vote_delete_path(@vote), :method => :delete, :class => "button round", :confirm => "Are you sure ?", id: "voterguy" %>
+                            <% else %>
+                              <%= render "votes/new" %>
+                            <% end %>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+
+                      </div>
+
                 </li>
-                <li>
-                    <a href="#">Events<span class="fi-calendar" alt="Events"></a>
-                </li>
-                <li>
-                    <a href="#">About<span class="fi-comments" alt="About"></a>
-                </li>
-                <li>
-                    <a href="#">Services<span class="fi-thumbnails" alt="Services"></a>
-                </li>
-                <li>
-                    <a href="#">Contact<span class="fi-address-book" alt="Contact"></a>
-                </li>
+
+
+
+
             </ul>
         </div>
