@@ -783,6 +783,7 @@ ul {
   height:1px;
   background:#717171;
   border-bottom:1px solid #313030;
+  margin-top: 5%;
 }
 
 input#submit_new_content {
