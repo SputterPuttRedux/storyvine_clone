@@ -579,15 +579,14 @@ div#vote-center-button {
 }
 
 input#voterguy {
-/*  margin-right: 0 auto;
-  margin-left: 0 auto;
-  position: relative;*/
+  background-color: #FFFFFF;
 }
 
 #vote-up-button {
   padding: 5;
   margin-right: 0 auto;
   margin-left: 0 auto;
+  margin-top: -5%;
   position: relative;
   background-color: #FFFFFF;
 }
