@@ -30,11 +30,7 @@
         <div class="line-separator"></div><br><br>
 
         Written By: <%= link_to "#{@story.author.username}", user_path(@story.author.id) %><br></br>
-        <% if @story.published && session[:user_id] %>
-          Like this story? <%= link_to "Write Off Of This Story", new_nested_story_path %>
-          <% elsif !current_user %>
-          <p class="center-text"><a href="#" data-reveal-id="signup">Inspired? How about signing up!</a></p>
-        <% end %>
+
       <% end %>
 
 
@@ -71,9 +67,7 @@
       <% end %>
     </div>
 
-    <div class="vine-icon">
-      Trace The History
-  </div>
+
 
       <div class="row">
         <div class="small-11 small-centered columns">
@@ -116,12 +110,32 @@
 
 
 
+
   </div>
 </div>
 
 
 
-    <div class="story-show-menu-bar">
-      <%= render :partial => 'stories/sidebar'  %>
-    </div>
+<div class="sidebar-toggle">menu</div>
+  <div class="sidebar">
+    <ul class="sidebar-nav">
+        <li>
+          <% if @story.published && session[:user_id] %>
+              <%= link_to "Write Off Of This Story", new_nested_story_path %><span class="fi-wrench" alt="Dashboard"></span></a>
+              <% end %>
+        </li>
 
+
+        <li>
+          <div class="vine-icon">
+            <p id="trace-history">Trace The History</p>
+          </div>
+        </li>
+
+        <li>
+          <p id="sidebar-menu-author">About <%= link_to "#{@story.author.username}", user_path(@story.author) %> </p>
+        </li>
+
+
+    </ul>
+</div>
