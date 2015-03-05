@@ -104,11 +104,8 @@ var storyHistory = function() {
 
 
 var storySideBarMenu = function() {
-  $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        // $("#page-content-wrapper").toggle("slow");
-        $("#sidebar-wrapper").toggle("slow");
-        $(".sidebar-nav").toggle("slow");
-        $("#wrapper").toggle("slow");
+  $('.sidebar-toggle').click(function() {
+    console.log($('.sidebar'))
+    $('.sidebar').toggleClass('hidden');
   });
 }
