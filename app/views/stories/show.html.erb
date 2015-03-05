@@ -123,27 +123,4 @@
 </div>
 
 
-
-<div class="sidebar-toggle">Story Menu</div>
-  <div class="sidebar">
-    <ul class="sidebar-nav">
-        <li>
-          <% if @story.published && session[:user_id] %>
-              <%= link_to "Write Off Of This Story", new_nested_story_path %><span class="fi-wrench" alt="Dashboard"></span></a>
-              <% end %>
-        </li>
-
-
-        <li>
-          <div class="vine-icon">
-            <p id="trace-history">Trace The History</p>
-          </div>
-        </li>
-
-        <li>
-          <p id="sidebar-menu-author">About <%= link_to "#{@story.author.username}", user_path(@story.author) %> </p>
-        </li>
-
-
-    </ul>
-</div>
+<%= render :partial => 'stories/sidebar'%>
