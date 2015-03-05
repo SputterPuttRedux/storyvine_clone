@@ -662,6 +662,10 @@ p {
   color: #372e27;
 }
 
+button:hover, button:focus, .button:hover, .button:focus {
+  color: #007095;
+}
+
 .button-expand {
   margin-left: 2%;
   border-radius: 5px;
