@@ -34,7 +34,6 @@
       <% end %>
 
 
-      <% if story_editable?(@story) %>
       <div>
         <% if !@story.published && story_editable?(@story) %>
           <%= link_to "Edit", edit_story_path(@story) %><br>
@@ -44,21 +43,30 @@
       </div>
 
 
-      <% if current_user %>
+      <% if !story_editable?(@story) %>
+      <div class="inappropriate-story-button">
         <%= form_for @story, :url => story_flag_path(@story) do |f| %>
         <%= f.submit "Report inappropriate", class:"button round report" %>
-        <% end %>
-      <% end %>
-
+      </div><br><br>
 
 
       <div class="story-tags">
         <h4>Tags</h4>
+          <% if @story.tags.count != 0 %>
         <% @story.tags.each do |tag| %>
           <%= link_to "#{tag.name}", tags_show_path(tag) %><br>
         <% end %>
-        <%= render :partial => 'tags/tagform'%>
-      </div>
+        <% else %>
+        There are no tags for this story.<br><br>
+
+      </div><br><br>
+
+      <% end %>
+      <% end %>
+      <% end %>
+
+      <% if story_editable?(@story) %>
+      <%= render :partial => 'tags/tagform'%>
       <% end %>
 
   <div class="vine-for-story">
@@ -66,7 +74,7 @@
         <div id="vine-hover"></div>
       <% end %>
     </div>
-
+<br><br>
 
 
       <div class="row">
