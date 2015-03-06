@@ -325,7 +325,7 @@ h1,h2,h3,h4,h5,h6 {
    height: 66px;
    width: 216px;
    margin: 0 auto;
-   margin-top: -2%;
+   /*margin-top: -2%;*/
    /*margin-bottom: 5%;*/
    margin-bottom: -1%;
    overflow: hidden;
