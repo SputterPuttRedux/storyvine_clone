@@ -32,7 +32,7 @@
 
     <div class="row dashboard-fullWidth">
       <div class="large-12 columns">
-    <h4 class="user-info-content">User's Snippets</h4>
+    <h4 class="user-info-content"><%=@user.username %>'s Snippets</h4>
     <% if @user.snippets %>
       <ul>
         <% @user.snippets.each do |snippet| %>
@@ -42,7 +42,7 @@
     <% else %>
       This user has no snippets.
     <% end %>
-     <h4 class="user-info">User's Stories</h4>
+     <h4 class="user-info"><%=@user.username %>'s Stories</h4>
      <% if @user.all_published %>
      <ul>
        <% @user.all_published.each do |story| %>

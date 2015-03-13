@@ -9,6 +9,7 @@ $(document).ready(function() {
   voteDown();
   accordionBar();
   storyHistory();
+  storySideBarMenu();
 
   $.ajaxSetup({
     headers: {
@@ -100,3 +101,11 @@ var storyHistory = function() {
   });
 }
 
+
+
+var storySideBarMenu = function() {
+  $('.sidebar-toggle').click(function() {
+    console.log($('.sidebar'))
+    $('.sidebar').toggleClass('hidden');
+  });
+}
